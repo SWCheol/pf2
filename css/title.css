@@ -1,140 +1,194 @@
 #title {
   height: 100%;
-  background-image:url(../img/section01_bg.png);
-  background-size:cover;
+  background-color: #eee;
+  min-height: 480px;
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 700px;
-  position: relative;
-  }
+  justify-content: flex-end;
+}
+
 #title::before{
   content: "";
-  background-image:url(../img/sec01_logo.png);
-  background-size:cover;
-  width: 1508px;
-  height: 388px;
-  margin-top: 60px;
-  animation-name: fadeIn; /* 애니메이션 이름 */
-  animation-duration: 1.5s; /* 애니메이션 시간 */
-  /*! animation-iteration-count: 3; */ /* 애니메이션 반복횟수 */
-  /*! animation-direction: alternate; */ /* 애니메이션 진행방향:왔다갔다 */
+  display: block;
+  position: absolute;
+  width: 75%;
+  height: 100%;
+  background-color: black;
 }
-@keyframes fadeIn{
-  0%{ /* 처음 상태 */
-    opacity: 0;
-    transform: scale(0.7);
-  }
-  70%{
-    transform: scale(1.2);
-  }
-  100%{ /* 끝 상태 */
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-  #title form.search {
-  width: 700px;
-  background-color: white;
-  height: 60px;
-  box-shadow: 2px 0px 10px #ccc;
-  border-radius: 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-right: 30px;
-  padding-left: 38px;
-  box-sizing: border-box;
+#title .inner {
+  width: 80%;
   position: relative;
-  animation-name: moveLeft;
-  animation-duration: 1s;
-  transform: translateX(70px);
-  animation-delay: 2s;
-  animation-fill-mode: forwards;
-/*   animation-direction: alternate;
-  animation-iteration-count: 2; */
-  }
-  @keyframes moveLeft{
-    0%{
-      transform: translateX(70px);
-    }
-    100%{
-      transform: translateX(0px);
-    }
-  }
-  #title form.search::before{
-    content: "";
-    background-image: url(../img/search.svg);
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    left: 16px;
-  }
-  #title form.search input {
-  border: none;
-  line-height: 1.6;
-  }
-#title form.search input:focus{ /* :focus input태그안에 커서를 위치시키는 행위 */
-  outline:none;
+  z-index: 1;
+  color: #fff;
+  height: 673px;
 }
-  #title form.search button {
-  border: none;
-  background-color: red;
-  color: white;
-  width: 100px;
-  line-height: 2.2;
-  border-radius: calc(29.3333px / 2);
-  }
-  #title h2 {
-    
-  }
-  #title ul.hash {
+#title .wslide {
+  width: 80%;
+  z-index: 1;
+  height: 673px;
+  margin-bottom: 0;
+}
+#title .wslide .inner{
   display: flex;
-  margin-top: 30px;
-  gap: 20px;
-  column-gap: 40px;
-  }
-  #title ul.hash li {
-    
-  }
-  #title ul.hash li a {
-    
-  }
-  #title ul.hash li a:hover{
-    color: yellowgreen;
-  }
-  #title span{
-    position: absolute;
-    bottom:20px;
-  }
-  #title span::before{
-    content: "";
-    width: 20px;
-    height: 20px;
-    display: block;
-    border: 2px solid;
-    border-top:transparent;
-    border-left:transparent;
-    margin: 0 auto;
-    transform: rotate(45deg);
-    margin-bottom:6px;
-    animation-name: scroll;
-    animation-direction: alternate;
-    animation-duration: 1s;
-    animation-iteration-count:infinite;
-  }
-@keyframes scroll{
+}
+#title .inner h2{
+  position: relative;
+  z-index: 1;
+  font-size: 65px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+#title .inner h2 span{
+  display: block;
+  animation-name: h2up;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-direction: reverse;
+  animation-timing-function: ease-out;
+}
+@keyframes h2up{
   0%{
-    transform:translateY(0) rotate(45deg) ;
+    transform: translateY(0);
+    opacity: 1;
   }
   100%{
-    transform: translateY(-6px) rotate(45deg);
+    transform: translateY(100%);
+    opacity: 0.4;
   }
 }
-  #title span::after{
-    content: "scroll";
+#title .inner p{
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+#title .inner p span{
+  display: block;
+  animation-name: pup;
+  animation-duration: 1.3s;
+  animation-fill-mode: forwards;
+  animation-direction: reverse;
+  animation-timing-function: ease-out;
+}
+@keyframes pup{
+  0%{
+    transform: translateY(0);
+    opacity: 1;
   }
+  50%{
+    transform: translateY(100%);
+  }
+  100%{
+    transform: translateY(100%);
+     opacity: 0;
+  }
+}
+#title .inner br{
+
+}
+#title .inner iframe{
+  width: 1188px;
+  height: 673px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+#title span.titleaside{
+  position: absolute;
+  right: calc(20% / 4 - 82px);
+  bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*! height: 500px; */
+  justify-content: space-between;
+  width: 164px;
+}
+#title .titleaside a.campaign{
+  transform: rotate(90deg) translateX(78px);
+}
+#title span.titleaside a.scroll{
+  font-size:12px; 
+  position: relative;
+  text-transform: uppercase;
+  animation-name: textcolor;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes textcolor{
+  0%{
+   color:black;
+  }
+  15%{
+   color:yellowgreen;
+  }
+  30%{
+   color:black;
+  }
+  100%{
+    color:black;
+  }
+}
+#title span.titleaside a.scroll::before{
+  content: "";
+  width: 15px;
+  height: 15px;
+  display: block;
+  position: absolute;
+  top: -13px;
+  border: 3px solid;
+  border-left: transparent;
+  border-top: transparent;
+  transform:scale(0.5) translateY(-15px) rotate(45deg);
+  color: #000;
+  left: calc(50% - 7.5px);
+  animation-name: scrollani1;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes scrollani1{
+  0%{
+    opacity: 0;
+  }
+  10%{
+    opacity: 0;
+  }
+   20%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+#title span.titleaside a.scroll::after{
+  content: "";
+  width: 15px;
+  height: 15px;
+  display: block;
+  position: absolute;
+  top: -22px;
+  border: 3px solid;
+  border-left: transparent;
+  border-top: transparent;
+  transform:scale(0.5) translateY(-15px) rotate(45deg);
+  color: #333;
+  left: calc(50% - 7.5px);
+  animation-name: scrollani2;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes scrollani2{
+  0%{
+    opacity: 0;
+  }
+  10%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
 
 
 
